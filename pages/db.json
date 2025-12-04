@@ -1,0 +1,72 @@
+{
+  "workouts": [
+    {
+      "id": 1,
+      "name": "Cardio Training",
+      "type": "cardio",
+      "level": "beginner",
+      "duration": "medium",
+      "image": "../images/cardio.jpeg",
+      "description": "Improve your endurance with our cardio exercises. Perfect for burning calories and strengthening your heart.",
+      "calories": "300-400",
+      "equipment": "None"
+    },
+    {
+      "id": 2,
+      "name": "Strength Training",
+      "type": "strength",
+      "level": "intermediate",
+      "duration": "long",
+      "image": "../images/strength.jpeg",
+      "description": "Build muscle and increase strength with our weight training programs. Suitable for all fitness levels.",
+      "calories": "400-500",
+      "equipment": "Dumbbells, Resistance Bands"
+    },
+    {
+      "id": 3,
+      "name": "Yoga & Flexibility",
+      "type": "yoga",
+      "level": "beginner",
+      "duration": "medium",
+      "image": "../images/yoga.jpeg",
+      "description": "Improve flexibility and reduce stress. Perfect for mindfulness and body awareness.",
+      "calories": "200-300",
+      "equipment": "Yoga Mat"
+    },
+    {
+      "id": 4,
+      "name": "Stretching & Mobility",
+      "type": "stretching",
+      "level": "beginner",
+      "duration": "short",
+      "image": "../images/stretching.jpeg",
+      "description": "Enhance your mobility and prevent injuries with proper stretching techniques.",
+      "calories": "100-150",
+      "equipment": "None"
+    },
+    {
+      "id": 5,
+      "name": "Advanced HIIT",
+      "type": "cardio",
+      "level": "advanced",
+      "duration": "short",
+      "image": "../images/hiit.jpeg",
+      "description": "High-intensity interval training for maximum calorie burn and endurance building.",
+      "calories": "400-600",
+      "equipment": "None"
+    },
+    {
+      "id": 6,
+      "name": "Power Lifting",
+      "type": "strength",
+      "level": "advanced",
+      "duration": "long",
+      "image": "../images/power-lifting.jpeg",
+      "description": "Build maximum strength with heavy compound movements and proper technique.",
+      "calories": "500-700",
+      "equipment": "Barbell, Weights"
+    }
+  ],
+  "users": [],
+  "completedWorkouts": []
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Fitness Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="mb-3">
+        <a href="../index.html" class="btn btn-back light-blue-text">← Back to Home</a>
+    </div>
+    
+    <div class="row">
+        
+        <div class="col-md-4">
+            <div class="card glass-card mb-4">
+                <div class="card-body text-center">
+                    <div class="user-avatar mb-3">
+                        <div class="avatar-placeholder">
+                            <span style="font-size: 3rem;"></span>
+                        </div>
+                    </div>
+                    <h3 class="light-blue-text">Atanova Sophie</h3>
+                    <p class="text-muted">Fitness Enthusiast</p>
+                    <div class="user-stats">
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <h5 class="light-blue-text">12</h5>
+                                <small class="text-muted">Workouts</small>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="light-blue-text">8</h5>
+                                <small class="text-muted">Weeks</small>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="light-blue-text">95%</h5>
+                                <small class="text-muted">Consistency</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Прогресс и планы тренировок -->
+        <div class="col-md-8">
+            <div class="card glass-card mb-4">
+                <div class="card-body">
+                    <h4 class="light-blue-text mb-4">Progress Tracking</h4>
+                    
+                    <!-- Статистика прогресса -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="progress-item">
+                                <h6>Workouts Completed</h6>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar" style="width: 75%">12/16</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="progress-item">
+                                <h6>Calories Burned</h6>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-success" style="width: 60%">4,500/7,500</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Текущий план тренировок -->
+                    <h5 class="light-blue-text mb-3">Current Workout Plan</h5>
+                    <div class="workout-plan">
+                        <div class="plan-item card mb-2">
+                            <div class="card-body py-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Monday</strong> - Strength Training
+                                    </div>
+                                    <span class="badge bg-success">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plan-item card mb-2">
+                            <div class="card-body py-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Wednesday</strong> - Cardio
+                                    </div>
+                                    <span class="badge bg-warning">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plan-item card mb-2">
+                            <div class="card-body py-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Friday</strong> - Yoga & Stretching
+                                    </div>
+                                    <span class="badge bg-secondary">Upcoming</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Достижения -->
+                    <h5 class="light-blue-text mt-4 mb-3">Achievements</h5>
+                    <div class="achievements">
+                        <div class="row">
+                            <div class="col-4 text-center">
+                                <div class="achievement-item">
+                                    <span style="font-size: 2rem;">🏃‍♂️</span>
+                                    <small class="d-block">First 5K</small>
+                                </div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="achievement-item">
+                                    <span style="font-size: 2rem;"></span>
+                                    <small class="d-block">Strength Master</small>
+                                </div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="achievement-item">
+                                    <span style="font-size: 2rem;"></span>
+                                    <small class="d-block">10 Workouts</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.progress {
+    height: 8px;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    background-color: var(--primary-blue);
+}
+
+.achievement-item {
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(79, 134, 247, 0.1);
+}
+
+.plan-item {
+    border-left: 4px solid var(--primary-blue);
+}
+</style>
+
+<script src="../script.js"></script>
+</body>
+</html>

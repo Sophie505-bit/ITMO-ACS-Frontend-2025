@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .completion-badge {
+            background: linear-gradient(135deg, #38b2ac, #4f86f7);
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .completion-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(56, 178, 172, 0.4);
+        }
+        
+        .completion-badge.completed {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .completion-badge.completed:hover {
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+        
+        .completion-badge i {
+            margin-right: 8px;
+        }
+        
+        .workout-stats {
+            background-color: rgba(79, 134, 247, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .workout-stats .stat-item {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .workout-stats .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        
+        .workout-stats .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="mb-3">
+        <a href="workouts.html" class="btn btn-back light-blue-text">← Back to Workouts</a>
+        <a href="../index.html" class="btn btn-back light-blue-text ms-2">← Back to Home</a>
+    </div>
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="form-title">Workout Details</h2>
+        <button id="completeWorkoutBtn" class="btn completion-badge">
+            <i class="far fa-check-circle"></i> Mark as Completed
+        </button>
+    </div>
+    
+    <!-- Статистика тренировки -->
+    <div class="workout-stats">
+        <div class="row">
+            <div class="col-md-3 col-6 stat-item">
+                <div class="stat-value">30 min</div>
+                <div class="stat-label">Duration</div>
+            </div>
+            <div class="col-md-3 col-6 stat-item">
+                <div class="stat-value">350 cal</div>
+                <div class="stat-label">Calories Burned</div>
+            </div>
+            <div class="col-md-3 col-6 stat-item">
+                <div class="stat-value">Beginner</div>
+                <div class="stat-label">Difficulty Level</div>
+            </div>
+            <div class="col-md-3 col-6 stat-item">
+                <div class="stat-value">Cardio</div>
+                <div class="stat-label">Workout Type</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card glass-card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <h5 class="card-title light-blue-text">Cardio Training</h5>
+                <span class="badge bg-primary">Beginner</span>
+            </div>
+            
+            <p class="card-text">This workout focuses on improving cardiovascular endurance through various exercises. Perfect for beginners who want to start their fitness journey or experienced athletes looking to maintain their cardio health.</p>
+            
+            <div class="video-container mb-4">
+                <div class="bg-light p-5 text-center rounded d-flex flex-column align-items-center justify-content-center">
+                    <i class="fas fa-play-circle" style="font-size: 3rem; color: var(--primary-blue); margin-bottom: 10px;"></i>
+                    <p class="text-muted">Workout video placeholder</p>
+                    <small class="text-muted">Video duration: 30 minutes</small>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h6 class="light-blue-text">Equipment Needed:</h6>
+                    <ul>
+                        <li>Comfortable workout clothes</li>
+                        <li>Running shoes</li>
+                        <li>Water bottle</li>
+                        <li>Exercise mat (optional)</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="light-blue-text">Target Areas:</h6>
+                    <ul>
+                        <li>Cardiovascular system</li>
+                        <li>Leg muscles</li>
+                        <li>Core stability</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h6 class="light-blue-text mb-3">Instructions:</h6>
+            <div class="card mb-3">
+                <div class="card-header bg-light">
+                    <h6 class="mb-0">Warm-up (5 minutes)</h6>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Light jogging in place: 2 minutes</li>
+                        <li>Dynamic stretching: 3 minutes</li>
+                        <li>Arm circles: 30 seconds each direction</li>
+                        <li>Leg swings: 30 seconds each leg</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card mb-3">
+                <div class="card-header bg-light">
+                    <h6 class="mb-0">Main Workout Circuit (Repeat 3 times)</h6>
+                </div>
+                <div class="card-body">
+                    <ol>
+                        <li><strong>Jumping Jacks:</strong> 30 seconds</li>
+                        <li><strong>High Knees:</strong> 30 seconds</li>
+                        <li><strong>Rest:</strong> 15 seconds</li>
+                        <li><strong>Butt Kicks:</strong> 30 seconds</li>
+                        <li><strong>Mountain Climbers:</strong> 30 seconds</li>
+                        <li><strong>Rest:</strong> 15 seconds</li>
+                        <li><strong>Skater Jumps:</strong> 30 seconds</li>
+                        <li><strong>Rest:</strong> 30 seconds between circuits</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h6 class="mb-0">Cool Down (5 minutes)</h6>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Slow walking in place: 2 minutes</li>
+                        <li>Static stretching: 3 minutes</li>
+                        <li>Quad stretch: 30 seconds each leg</li>
+                        <li>Hamstring stretch: 30 seconds each leg</li>
+                        <li>Calf stretch: 30 seconds each leg</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Блок отметки о выполнении -->
+            <div class="mt-4 pt-3 border-top">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="light-blue-text mb-2">Track Your Progress</h6>
+                        <p class="text-muted mb-0">Mark this workout as completed to track your progress in your profile.</p>
+                    </div>
+                    <div class="text-end">
+                        <div id="completionStatus" class="mb-2" style="display: none;">
+                            <span class="badge bg-success">
+                                <i class="fas fa-check-circle"></i> Completed on <span id="completionDate"></span>
+                            </span>
+                        </div>
+                        <button id="markCompleteBtn" class="btn btn-form-primary">
+                            <i class="far fa-check-circle"></i> Mark as Completed
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Обработка отметки тренировки как выполненной
+    document.addEventListener('DOMContentLoaded', function() {
+        const markCompleteBtn = document.getElementById('markCompleteBtn');
+        const completionStatus = document.getElementById('completionStatus');
+        const completionDate = document.getElementById('completionDate');
+        const completeWorkoutBtn = document.getElementById('completeWorkoutBtn');
+        
+        // Уникальный ID для этой тренировки (используем ID или название)
+        const workoutId = 'cardio_training_001'; // Уникальный идентификатор для кардио-тренировки
+        const storageKey = `workout_${workoutId}_completed`;
+        
+        // Проверяем, есть ли в localStorage отметка о выполнении ЭТОЙ тренировки
+        const workoutCompleted = localStorage.getItem(storageKey);
+        
+        if (workoutCompleted) {
+            updateCompletionUI(true, workoutCompleted);
+        }
+        
+        // Обработчик для кнопки в основном блоке
+        markCompleteBtn.addEventListener('click', function() {
+            if (!workoutCompleted) {
+                const now = new Date();
+                const formattedDate = now.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                const time = now.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                // Сохраняем в localStorage с уникальным ключом
+                localStorage.setItem(storageKey, now.toISOString());
+                
+                // Обновляем UI
+                updateCompletionUI(true, now.toISOString());
+                
+                // Показываем уведомление
+                showNotification('Workout marked as completed! Your progress has been updated.');
+                
+                // Также обновляем общий счетчик выполненных тренировок в профиле
+                updateTotalWorkoutsCompleted();
+            }
+        });
+        
+        // Обработчик для кнопки в заголовке
+        completeWorkoutBtn.addEventListener('click', function() {
+            if (!workoutCompleted) {
+                markCompleteBtn.click(); // Имитируем клик по основной кнопке
+            }
+        });
+        
+        function updateCompletionUI(completed, dateString = null) {
+            if (completed) {
+                // Обновляем основную кнопку
+                markCompleteBtn.innerHTML = '<i class="fas fa-check-circle"></i> Completed';
+                markCompleteBtn.classList.add('completed');
+                markCompleteBtn.disabled = true;
+                
+                // Обновляем кнопку в заголовке
+                completeWorkoutBtn.innerHTML = '<i class="fas fa-check-circle"></i> Completed';
+                completeWorkoutBtn.classList.add('completed');
+                completeWorkoutBtn.disabled = true;
+                
+                // Показываем статус
+                if (dateString) {
+                    const date = new Date(dateString);
+                    const formattedDate = date.toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
+                    const time = date.toLocaleTimeString('en-US', {
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                    completionDate.textContent = formattedDate + ' at ' + time;
+                }
+                completionStatus.style.display = 'block';
+            }
+        }
+        
+        function updateTotalWorkoutsCompleted() {
+            // Получаем текущее количество выполненных тренировок
+            let completedWorkouts = JSON.parse(localStorage.getItem('completed_workouts')) || [];
+            
+            // Добавляем ID этой тренировки, если его еще нет
+            if (!completedWorkouts.includes(workoutId)) {
+                completedWorkouts.push(workoutId);
+                localStorage.setItem('completed_workouts', JSON.stringify(completedWorkouts));
+                
+                // Обновляем счетчик в профиле (если бы у нас была общая функция)
+                console.log(`Total workouts completed: ${completedWorkouts.length}`);
+            }
+        }
+        
+        function showNotification(message) {
+            // Создаем временное уведомление
+            const notification = document.createElement('div');
+            notification.className = 'alert alert-success alert-dismissible fade show position-fixed';
+            notification.style.top = '20px';
+            notification.style.right = '20px';
+            notification.style.zIndex = '1050';
+            notification.style.minWidth = '300px';
+            notification.innerHTML = `
+                <i class="fas fa-check-circle me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Автоматически скрываем через 5 секунд
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+    });
+</script>
+
+<script src="../script.js"></script>
+</body>
+</html>
