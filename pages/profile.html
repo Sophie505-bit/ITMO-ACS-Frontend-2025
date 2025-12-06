@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 <div class="container mt-5">
@@ -15,31 +16,47 @@
     </div>
     
     <div class="row">
-        
+        <!-- Профиль пользователя -->
         <div class="col-md-4">
             <div class="card glass-card mb-4">
                 <div class="card-body text-center">
                     <div class="user-avatar mb-3">
                         <div class="avatar-placeholder">
-                            <span style="font-size: 3rem;"></span>
+                            <span style="font-size: 3rem;">👤</span>
                         </div>
                     </div>
-                    <h3 class="light-blue-text">Atanova Sophie</h3>
-                    <p class="text-muted">Fitness Enthusiast</p>
+                    <h3 class="light-blue-text" id="userName">Atanova Sophie</h3>
+                    <p class="text-muted" id="userRole">Fitness Enthusiast</p>
                     <div class="user-stats">
                         <div class="row text-center">
                             <div class="col-4">
-                                <h5 class="light-blue-text">12</h5>
+                                <h5 class="light-blue-text" id="workoutsCount">0</h5>
                                 <small class="text-muted">Workouts</small>
                             </div>
                             <div class="col-4">
-                                <h5 class="light-blue-text">8</h5>
+                                <h5 class="light-blue-text" id="weeksCount">8</h5>
                                 <small class="text-muted">Weeks</small>
                             </div>
                             <div class="col-4">
-                                <h5 class="light-blue-text">95%</h5>
+                                <h5 class="light-blue-text" id="consistencyRate">0%</h5>
                                 <small class="text-muted">Consistency</small>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Выполненные тренировки -->
+            <div class="card glass-card">
+                <div class="card-body">
+                    <h5 class="light-blue-text mb-3">Completed Workouts</h5>
+                    <div id="completedWorkoutsList">
+                        <!-- Список будет заполнен через JavaScript -->
+                        <div class="text-center py-3">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Loading completed workouts...</p>
                         </div>
                     </div>
                 </div>
@@ -58,16 +75,18 @@
                             <div class="progress-item">
                                 <h6>Workouts Completed</h6>
                                 <div class="progress mb-2">
-                                    <div class="progress-bar" style="width: 75%">12/16</div>
+                                    <div id="workoutsProgressBar" class="progress-bar" style="width: 0%">0/10</div>
                                 </div>
+                                <small id="workoutsProgressText" class="text-muted">0 workouts completed</small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="progress-item">
                                 <h6>Calories Burned</h6>
                                 <div class="progress mb-2">
-                                    <div class="progress-bar bg-success" style="width: 60%">4,500/7,500</div>
+                                    <div id="caloriesProgressBar" class="progress-bar bg-success" style="width: 0%">0/7,500</div>
                                 </div>
+                                <small id="caloriesProgressText" class="text-muted">0 calories burned</small>
                             </div>
                         </div>
                     </div>
@@ -81,7 +100,7 @@
                                     <div>
                                         <strong>Monday</strong> - Strength Training
                                     </div>
-                                    <span class="badge bg-success">Completed</span>
+                                    <span id="mondayStatus" class="badge bg-success">Completed</span>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +110,7 @@
                                     <div>
                                         <strong>Wednesday</strong> - Cardio
                                     </div>
-                                    <span class="badge bg-warning">Pending</span>
+                                    <span id="wednesdayStatus" class="badge bg-warning">Pending</span>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +120,7 @@
                                     <div>
                                         <strong>Friday</strong> - Yoga & Stretching
                                     </div>
-                                    <span class="badge bg-secondary">Upcoming</span>
+                                    <span id="fridayStatus" class="badge bg-secondary">Upcoming</span>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +132,7 @@
                         <div class="row">
                             <div class="col-4 text-center">
                                 <div class="achievement-item">
-                                    <span style="font-size: 2rem;">🏃‍♂️</span>
+                                    <span style="font-size: 2rem;"></span>
                                     <small class="d-block">First 5K</small>
                                 </div>
                             </div>
@@ -126,7 +145,7 @@
                             <div class="col-4 text-center">
                                 <div class="achievement-item">
                                     <span style="font-size: 2rem;"></span>
-                                    <small class="d-block">10 Workouts</small>
+                                    <small class="d-block" id="workoutAchievement">0 Workouts</small>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +175,352 @@
 .plan-item {
     border-left: 4px solid var(--primary-blue);
 }
+
+.completed-workout-item {
+    background: rgba(79, 134, 247, 0.05);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-left: 3px solid var(--primary-blue);
+}
+
+.completed-workout-item h6 {
+    margin-bottom: 3px;
+    font-size: 0.95rem;
+}
+
+.completed-workout-item small {
+    color: #6c757d;
+    font-size: 0.8rem;
+}
+
+.level-badge {
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.level-beginner {
+    background: #10b981;
+    color: white;
+}
+
+.level-intermediate {
+    background: #f59e0b;
+    color: white;
+}
+
+.level-advanced {
+    background: #ef4444;
+    color: white;
+}
+
+#emptyCompletedWorkouts {
+    text-align: center;
+    padding: 20px;
+    color: #6c757d;
+}
+
+#emptyCompletedWorkouts i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #dee2e6;
+}
 </style>
+
+<script>
+// Глобальное состояние
+const AppState = {
+    currentUser: JSON.parse(localStorage.getItem('current_user')) || null,
+    completedWorkouts: JSON.parse(localStorage.getItem('completedWorkouts')) || []
+};
+
+// Загрузка данных профиля
+function loadProfileData() {
+    console.log('Loading profile data...');
+    
+    // Обновляем информацию о пользователе
+    updateUserInfo();
+    
+    // Загружаем выполненные тренировки
+    loadCompletedWorkouts();
+    
+    // Обновляем статистику прогресса
+    updateProgressStats();
+}
+
+// Обновление информации о пользователе
+function updateUserInfo() {
+    const userName = document.getElementById('userName');
+    const userRole = document.getElementById('userRole');
+    
+    if (AppState.currentUser) {
+        userName.textContent = `${AppState.currentUser.firstName || 'Atanova'} ${AppState.currentUser.lastName || 'Sophie'}`;
+        userRole.textContent = AppState.currentUser.role || 'Fitness Enthusiast';
+    } else {
+        userName.textContent = 'Atanova Sophie';
+        userRole.textContent = 'Fitness Enthusiast';
+    }
+}
+
+// Загрузка выполненных тренировок
+function loadCompletedWorkouts() {
+    const container = document.getElementById('completedWorkoutsList');
+    
+    if (!AppState.completedWorkouts || AppState.completedWorkouts.length === 0) {
+        container.innerHTML = `
+            <div id="emptyCompletedWorkouts">
+                <i class="fas fa-dumbbell"></i>
+                <p>No workouts completed yet</p>
+                <p class="small text-muted">Complete workouts to see them here!</p>
+                <a href="workouts.html" class="btn btn-sm btn-form-primary">
+                    <i class="fas fa-dumbbell me-1"></i>Browse Workouts
+                </a>
+            </div>
+        `;
+        return;
+    }
+    
+    // Сортируем по дате (новые сверху)
+    const sortedWorkouts = [...AppState.completedWorkouts].sort((a, b) => {
+        return new Date(b.date || b.completedDate) - new Date(a.date || a.completedDate);
+    });
+    
+    let html = '';
+    
+    // Показываем последние 5 тренировок
+    const recentWorkouts = sortedWorkouts.slice(0, 5);
+    
+    recentWorkouts.forEach((workout, index) => {
+        const date = new Date(workout.date || workout.completedDate);
+        const formattedDate = date.toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric'
+        });
+        const formattedTime = date.toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        // Определяем уровень тренировки
+        let levelClass = 'level-beginner';
+        let levelText = 'Beginner';
+        
+        if (workout.level === 'intermediate') {
+            levelClass = 'level-intermediate';
+            levelText = 'Intermediate';
+        } else if (workout.level === 'advanced') {
+            levelClass = 'level-advanced';
+            levelText = 'Advanced';
+        }
+        
+        // Определяем иконку по типу тренировки
+        let workoutIcon = 'fa-dumbbell';
+        if (workout.type === 'cardio') workoutIcon = 'fa-running';
+        else if (workout.type === 'yoga') workoutIcon = 'fa-spa';
+        else if (workout.type === 'stretching') workoutIcon = 'fa-child';
+        else if (workout.type === 'hiit') workoutIcon = 'fa-bolt';
+        
+        html += `
+            <div class="completed-workout-item">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="flex-grow-1">
+                        <h6 class="mb-1">
+                            <i class="fas ${workoutIcon} me-1"></i>
+                            ${workout.name || `Workout ${index + 1}`}
+                        </h6>
+                        <div class="d-flex align-items-center">
+                            <span class="${levelClass} level-badge me-2">${levelText}</span>
+                            <small class="text-muted">
+                                <i class="far fa-calendar me-1"></i>${formattedDate} at ${formattedTime}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    // Если есть больше 5 тренировок, показываем сообщение
+    if (sortedWorkouts.length > 5) {
+        html += `
+            <div class="text-center mt-3">
+                <small class="text-muted">
+                    +${sortedWorkouts.length - 5} more workouts
+                </small>
+            </div>
+        `;
+    }
+    
+    container.innerHTML = html;
+}
+
+// Обновление статистики прогресса
+function updateProgressStats() {
+    const completedCount = AppState.completedWorkouts.length;
+    
+    // Обновляем счетчик тренировок
+    document.getElementById('workoutsCount').textContent = completedCount;
+    document.getElementById('consistencyRate').textContent = calculateConsistencyRate(completedCount);
+    
+    // Обновляем прогресс-бар тренировок
+    const workoutsGoal = 10;
+    const workoutsProgress = Math.min(100, Math.round((completedCount / workoutsGoal) * 100));
+    const workoutsProgressBar = document.getElementById('workoutsProgressBar');
+    const workoutsProgressText = document.getElementById('workoutsProgressText');
+    
+    workoutsProgressBar.style.width = `${workoutsProgress}%`;
+    workoutsProgressBar.textContent = `${completedCount}/${workoutsGoal}`;
+    workoutsProgressText.textContent = `${completedCount} workouts completed`;
+    
+    // Обновляем прогресс-бар калорий
+    const totalCalories = calculateTotalCalories();
+    const caloriesGoal = 7500;
+    const caloriesProgress = Math.min(100, Math.round((totalCalories / caloriesGoal) * 100));
+    const caloriesProgressBar = document.getElementById('caloriesProgressBar');
+    const caloriesProgressText = document.getElementById('caloriesProgressText');
+    
+    caloriesProgressBar.style.width = `${caloriesProgress}%`;
+    caloriesProgressBar.textContent = `${totalCalories.toLocaleString()}/7,500`;
+    caloriesProgressText.textContent = `${totalCalories.toLocaleString()} calories burned`;
+    
+    // Обновляем достижение
+    document.getElementById('workoutAchievement').textContent = `${completedCount} Workouts`;
+    
+    // Обновляем статусы тренировок на основе дня недели
+    updateWorkoutPlanStatus();
+}
+
+// Вспомогательные функции
+function calculateTotalCalories() {
+    let total = 0;
+    
+    AppState.completedWorkouts.forEach(workout => {
+        // Извлекаем калории из строки (например, "300-400")
+        const caloriesText = workout.calories || '300-400';
+        
+        if (caloriesText.includes('-')) {
+            const parts = caloriesText.split('-').map(part => parseInt(part.trim()) || 0);
+            const average = parts.length > 0 ? parts.reduce((a, b) => a + b, 0) / parts.length : 350;
+            total += average;
+        } else {
+            total += parseInt(caloriesText) || 350;
+        }
+    });
+    
+    return Math.round(total);
+}
+
+function calculateConsistencyRate(completedWorkouts) {
+    // Простая логика для консистенции
+    if (completedWorkouts >= 15) return '95%';
+    if (completedWorkouts >= 10) return '85%';
+    if (completedWorkouts >= 5) return '70%';
+    if (completedWorkouts >= 1) return '50%';
+    return '0%';
+}
+
+function updateWorkoutPlanStatus() {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, etc.
+    
+    const mondayStatus = document.getElementById('mondayStatus');
+    const wednesdayStatus = document.getElementById('wednesdayStatus');
+    const fridayStatus = document.getElementById('fridayStatus');
+    
+    // Определяем статусы на основе дня недели
+    if (dayOfWeek === 1) { // Monday
+        // Проверяем, есть ли сегодняшние тренировки
+        const hasWorkoutToday = checkIfWorkoutCompletedToday('strength');
+        mondayStatus.className = hasWorkoutToday ? 'badge bg-success' : 'badge bg-warning';
+        mondayStatus.textContent = hasWorkoutToday ? 'Completed' : 'Today';
+        
+        wednesdayStatus.className = 'badge bg-secondary';
+        wednesdayStatus.textContent = 'Upcoming';
+        
+        fridayStatus.className = 'badge bg-secondary';
+        fridayStatus.textContent = 'Upcoming';
+    } else if (dayOfWeek === 3) { // Wednesday
+        mondayStatus.className = 'badge bg-success';
+        mondayStatus.textContent = 'Completed';
+        
+        const hasWorkoutToday = checkIfWorkoutCompletedToday('cardio');
+        wednesdayStatus.className = hasWorkoutToday ? 'badge bg-success' : 'badge bg-warning';
+        wednesdayStatus.textContent = hasWorkoutToday ? 'Completed' : 'Today';
+        
+        fridayStatus.className = 'badge bg-secondary';
+        fridayStatus.textContent = 'Upcoming';
+    } else if (dayOfWeek === 5) { // Friday
+        mondayStatus.className = 'badge bg-success';
+        mondayStatus.textContent = 'Completed';
+        
+        wednesdayStatus.className = 'badge bg-success';
+        wednesdayStatus.textContent = 'Completed';
+        
+        const hasWorkoutToday = checkIfWorkoutCompletedToday('yoga');
+        fridayStatus.className = hasWorkoutToday ? 'badge bg-success' : 'badge bg-warning';
+        fridayStatus.textContent = hasWorkoutToday ? 'Completed' : 'Today';
+    } else {
+        // Для других дней
+        mondayStatus.className = 'badge bg-success';
+        mondayStatus.textContent = 'Completed';
+        
+        wednesdayStatus.className = 'badge bg-warning';
+        wednesdayStatus.textContent = 'Pending';
+        
+        fridayStatus.className = 'badge bg-secondary';
+        fridayStatus.textContent = 'Upcoming';
+    }
+}
+
+function checkIfWorkoutCompletedToday(type) {
+    const today = new Date();
+    const todayString = today.toISOString().split('T')[0];
+    
+    return AppState.completedWorkouts.some(workout => {
+        const workoutDate = new Date(workout.date || workout.completedDate);
+        const workoutDateString = workoutDate.toISOString().split('T')[0];
+        
+        // Простая проверка типа (можно улучшить)
+        if (type === 'strength') {
+            return workoutDateString === todayString && 
+                   (workout.type === 'strength' || workout.type === 'power-lifting');
+        } else if (type === 'cardio') {
+            return workoutDateString === todayString && 
+                   (workout.type === 'cardio' || workout.type === 'hiit');
+        } else if (type === 'yoga') {
+            return workoutDateString === todayString && 
+                   (workout.type === 'yoga' || workout.type === 'stretching');
+        }
+        return false;
+    });
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Profile page loaded');
+    
+    // Загружаем данные профиля
+    loadProfileData();
+    
+    // Проверяем состояние авторизации
+    if (!AppState.currentUser) {
+        console.log('User not logged in, showing guest profile');
+        // Можно добавить сообщение о необходимости входа
+    }
+});
+
+// Функция для обновления данных (можно вызвать извне)
+function refreshProfileData() {
+    // Обновляем данные из localStorage
+    AppState.completedWorkouts = JSON.parse(localStorage.getItem('completedWorkouts')) || [];
+    AppState.currentUser = JSON.parse(localStorage.getItem('current_user')) || null;
+    
+    // Перезагружаем данные
+    loadProfileData();
+}
+</script>
 
 <script src="../script.js"></script>
 </body>
