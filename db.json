@@ -1,0 +1,65 @@
+{
+  "workouts": [
+    {
+      "id": 1,
+      "name": "Cardio Training",
+      "description": "Improve your endurance with our cardio exercises. Perfect for burning calories and strengthening your heart.",
+      "type": "cardio",
+      "level": "beginner",
+      "duration": "medium",
+      "calories": "300-400",
+      "equipment": "Treadmill, Jump Rope"
+    },
+    {
+      "id": 2,
+      "name": "Strength Training",
+      "description": "Build muscle and increase strength with our weight training programs. Suitable for all fitness levels.",
+      "type": "strength",
+      "level": "intermediate",
+      "duration": "long",
+      "calories": "400-500",
+      "equipment": "Dumbbells, Barbell, Bench"
+    },
+    {
+      "id": 3,
+      "name": "Yoga Flow",
+      "description": "Improve flexibility and mindfulness with our yoga sessions. Perfect for stress relief.",
+      "type": "yoga",
+      "level": "beginner",
+      "duration": "medium",
+      "calories": "200-300",
+      "equipment": "Yoga Mat"
+    },
+    {
+      "id": 4,
+      "name": "Stretching Routine",
+      "description": "Increase flexibility and prevent injuries with our stretching exercises.",
+      "type": "stretching",
+      "level": "beginner",
+      "duration": "short",
+      "calories": "150-200",
+      "equipment": "Yoga Mat"
+    },
+    {
+      "id": 5,
+      "name": "HIIT Workout",
+      "description": "High Intensity Interval Training for maximum calorie burn in minimal time.",
+      "type": "hiit",
+      "level": "advanced",
+      "duration": "short",
+      "calories": "400-450",
+      "equipment": "Timer, Mat"
+    },
+    {
+      "id": 6,
+      "name": "Power Lifting",
+      "description": "Build maximum strength with power lifting techniques and heavy weights.",
+      "type": "power-lifting",
+      "level": "advanced",
+      "duration": "long",
+      "calories": "500-600",
+      "equipment": "Barbell, Plates, Power Rack"
+    }
+  ],
+  "users": []
+}
