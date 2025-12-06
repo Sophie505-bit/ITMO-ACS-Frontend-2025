@@ -1,4 +1,4 @@
-/* Подключаем элегантные шрифты */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 :root {
@@ -195,7 +195,6 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Светлые синие кнопки для форм */
 .btn-form-primary {
     background: linear-gradient(135deg, var(--light-blue), var(--primary-blue-light));
     border: none;
@@ -237,7 +236,6 @@ body {
     box-shadow: 0 8px 25px rgba(163, 191, 250, 0.3);
 }
 
-/* Элегантный список */
 .elegant-list-item {
     background: transparent;
     border: none;
@@ -320,7 +318,6 @@ body {
     box-shadow: 0 4px 15px rgba(79, 134, 247, 0.15);
 }
 
-/* Утилиты */
 .container {
     margin-top: 2rem;
 }
@@ -334,7 +331,7 @@ body {
     border-radius: 16px !important;
 }
 
-/* Адаптивность */
+
 @media (max-width: 768px) {
     .elegant-title {
         font-size: 2rem !important;
@@ -355,12 +352,12 @@ body {
     }
 }
 
-/* Плавные анимации */
+
 .card, .btn, .elegant-list-item, .form-control {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Стили для фильтров и прогресса */
+
 .workout-details {
     font-size: 0.9rem;
 }
@@ -400,4 +397,212 @@ body {
 
 .plan-item:hover {
     transform: translateX(5px);
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+    background-color: #00bcd4;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-hero-primary:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-hero-secondary {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-hero-secondary:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-hero-outline {
+    background-color: transparent;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+.btn-hero-outline:hover {
+    background-color: white;
+    color: #1a237e;
+    transform: translateY(-2px);
+}
+
+
+.features-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a237e;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h4 {
+    color: #1a237e;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.main-footer {
+    background-color: #1a237e;
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.main-footer h5 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-bottom: 0.75rem;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00bcd4;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+.card.glass-card.quick-access-card .card-body {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.card.glass-card.quick-access-card .btn-elegant.btn-lg {
+    font-size: 16px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-bottom: 0.5rem;
 }

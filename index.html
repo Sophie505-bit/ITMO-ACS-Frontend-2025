@@ -7,50 +7,210 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Favicon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+       
+        .compact-quick-access .card-body {
+            padding: 1rem !important;
+        }
+        
+        .compact-quick-access .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem !important;
+        }
+        
+        .compact-quick-access .btn-elegant {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 <body>
 <div class="container mt-5">
-    <nav class="navbar navbar-transparent mb-5">
+    <!-- Навигация по центру -->
+    <nav class="navbar navbar-transparent mb-4">
         <div class="container-fluid justify-content-center">
             <a class="navbar-brand elegant-title" href="index.html">Fitness Platform</a>
         </div>
     </nav>
 
-    <div class="row">
-        
-        <div class="col-md-4">
-            <div class="card mb-4 glass-card">
-                <div class="card-body">
-                    <h5 class="card-title elegant-heading light-blue-text">Quick Access</h5>
-                    <div class="d-grid gap-2">
-                        <a href="pages/workouts.html" class="btn btn-elegant">Workouts</a>
-                        <a href="pages/blog.html" class="btn btn-elegant">Blog</a>
-                        <a href="pages/profile.html" class="btn btn-elegant">Profile</a>
-                    </div>
+    <!-- Главное содержимое -->
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Кнопки Login и Register по центру -->
+            <div class="text-center mb-4">
+                <div class="d-flex justify-content-center gap-3">
+                    <button id="mainLoginBtn" class="btn btn-primary-elegant btn-lg px-4">
+                        <i class="fas fa-sign-in-alt me-2"></i>Login
+                    </button>
+                    <button id="mainRegisterBtn" class="btn btn-secondary-elegant btn-lg px-4">
+                        <i class="fas fa-user-plus me-2"></i>Register
+                    </button>
                 </div>
             </div>
-            
-    
-        </div>
 
-        <div class="col-md-8">
-            <div class="text-center">
-               
-                <div class="mb-4">
-                    <a href="pages/login.html" class="btn btn-primary-elegant btn-lg me-3">Login</a>
-                    <a href="pages/register.html" class="btn btn-secondary-elegant btn-lg">Register</a>
-                </div>
+           
+            <div class="row g-4">
                 
-                <div class="photo-container">
-                    <img src="images/workout.jpg" alt="Workout Image" class="img-fluid rounded-lg elegant-image">
-                    <div class="image-overlay"></div>
+                <div class="col-md-4">
+                    <div class="card glass-card compact-quick-access">
+                        <div class="card-body">
+                            <h5 class="card-title elegant-heading light-blue-text">
+                                <i class="fas fa-bolt me-2"></i>Quick Access
+                            </h5>
+                            <div class="d-grid gap-2">
+                                <a href="pages/workouts.html" class="btn btn-elegant">
+                                    <i class="fas fa-dumbbell me-2"></i>Workouts
+                                </a>
+                                <a href="pages/blog.html" class="btn btn-elegant">
+                                    <i class="fas fa-blog me-2"></i>Blog
+                                </a>
+                                <a href="pages/profile.html" class="btn btn-elegant">
+                                    <i class="fas fa-user me-2"></i>Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              
+                <div class="col-md-8">
+                    <div class="photo-container">
+                        <img src="images/workout.jpg" alt="Workout Image" class="img-fluid rounded-lg elegant-image" style="width: 100%;">
+                        <div class="image-overlay"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content glass-card">
+            <div class="modal-header border-0">
+                <h5 class="modal-title elegant-heading" id="loginModalLabel">Log In</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" onsubmit="event.preventDefault(); handleLogin();">
+                    <div class="mb-3">
+                        <label for="loginEmailInput" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="loginEmailInput" required placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPasswordInput" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="loginPasswordInput" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn btn-form-primary w-100">
+                        <i class="fas fa-sign-in-alt me-2"></i>Log In
+                    </button>
+                </form>
+                <div class="text-center mt-3">
+                    <p class="text-muted mb-0">Don't have an account? 
+                        <a href="#" class="light-blue-text" id="switchToRegisterFromLogin">
+                            Register here
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для регистрации -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content glass-card">
+            <div class="modal-header border-0">
+                <h5 class="modal-title elegant-heading" id="registerModalLabel">Create Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm" onsubmit="event.preventDefault(); handleRegistration();">
+                    <div class="mb-3">
+                        <label for="firstNameInput" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstNameInput" required placeholder="Enter your first name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastNameInput" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastNameInput" required placeholder="Enter your last name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailInput" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="emailInput" required placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordInput" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="passwordInput" required placeholder="Create a password">
+                        <div class="form-text">Password must be at least 6 characters long.</div>
+                    </div>
+                    <button type="submit" class="btn btn-form-primary w-100">
+                        <i class="fas fa-user-plus me-2"></i>Create Account
+                    </button>
+                </form>
+                <div class="text-center mt-3">
+                    <p class="text-muted mb-0">Already have an account? 
+                        <a href="#" class="light-blue-text" id="switchToLoginFromRegister">
+                            Log in here
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const mainLoginBtn = document.getElementById('mainLoginBtn');
+    const mainRegisterBtn = document.getElementById('mainRegisterBtn');
+    const switchToRegisterFromLogin = document.getElementById('switchToRegisterFromLogin');
+    const switchToLoginFromRegister = document.getElementById('switchToLoginFromRegister');
+    
+    // Инициализация модальных окон
+    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+    const registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+    
+    // Обработчики для основных кнопок
+    if (mainLoginBtn) {
+        mainLoginBtn.addEventListener('click', function() {
+            loginModal.show();
+        });
+    }
+    
+    if (mainRegisterBtn) {
+        mainRegisterBtn.addEventListener('click', function() {
+            registerModal.show();
+        });
+    }
+    
+    // Обработчики для переключения между модальными окнами
+    if (switchToRegisterFromLogin) {
+        switchToRegisterFromLogin.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.hide();
+            setTimeout(() => {
+                registerModal.show();
+            }, 300);
+        });
+    }
+    
+    if (switchToLoginFromRegister) {
+        switchToLoginFromRegister.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.hide();
+            setTimeout(() => {
+                loginModal.show();
+            }, 300);
+        });
+    }
+});
+</script>
 </body>
 </html>
